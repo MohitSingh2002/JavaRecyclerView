@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.javarecyclerview.databinding.ActivityCatalogBinding;
 import com.example.javarecyclerview.model.Product;
@@ -22,9 +23,21 @@ public class CatalogActivity extends AppCompatActivity {
         b = ActivityCatalogBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        setupProductList();
+//        setupProductList();
+//
+//        setupAdapter();
 
-        setupAdapter();
+        new WeightPicker().show(CatalogActivity.this, new WeightPicker.OnWeightPickedListener() {
+            @Override
+            public void onWeightPicked(int kg, int g) {
+                Toast.makeText(CatalogActivity.this, kg + "kg" + " " + g * 50 + "g", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onWeightPickerCancelled() {
+                Toast.makeText(CatalogActivity.this, "Cancel Clicked!", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
