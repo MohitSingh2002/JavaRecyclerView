@@ -94,18 +94,18 @@ public class NumberPickerActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.btn_button1:
                 Toast.makeText(this, "Button 1 Pressed! of Contextual Menu", Toast.LENGTH_LONG).show();
-                break;
+                return true;
 
             case R.id.btn_button2:
                 Toast.makeText(this, "Button 2 Pressed! of Contextual Menu", Toast.LENGTH_LONG).show();
-                break;
+                return true;
 
             case R.id.btn_button3:
                 Toast.makeText(this, "Button 3 Pressed! of Contextual Menu", Toast.LENGTH_LONG).show();
-                break;
+                return true;
 
-            default:
-                break;
+//            default:
+//                return true;
         }
         return super.onContextItemSelected(item);
     }
