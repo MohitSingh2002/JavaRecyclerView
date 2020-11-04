@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btn_button1"
+        android:title="Button 1"
+        android:orderInCategory="100"/>
+
+    <item
+        android:id="@+id/btn_button2"
+        android:title="Button 2"
+        android:orderInCategory="200"/>
+
+    <item
+        android:id="@+id/btn_button3"
+        android:title="Button 3"
+        android:orderInCategory="300"/>
+
+</menu>

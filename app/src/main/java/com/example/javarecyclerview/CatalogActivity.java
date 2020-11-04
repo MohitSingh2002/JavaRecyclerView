@@ -27,18 +27,6 @@ public class CatalogActivity extends AppCompatActivity {
 //
 //        setupAdapter();
 
-        new WeightPicker().show(CatalogActivity.this, new WeightPicker.OnWeightPickedListener() {
-            @Override
-            public void onWeightPicked(int kg, int g) {
-                Toast.makeText(CatalogActivity.this, kg + "kg" + " " + g * 50 + "g", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onWeightPickerCancelled() {
-                Toast.makeText(CatalogActivity.this, "Cancel Clicked!", Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
 
     private void setupAdapter() {
