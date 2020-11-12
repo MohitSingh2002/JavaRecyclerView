@@ -20,7 +20,7 @@ public class WeightPicker {
      *          with 2 NumberPickers (for kg & g)
      */
 
-    public void show(Context context, final OnWeightPickedListener listener){
+    public void show(Context context, String minQty, final OnWeightPickedListener listener){
         WeightPickerDialogBinding b = WeightPickerDialogBinding.inflate(
                 LayoutInflater.from(context)
         );
@@ -52,7 +52,7 @@ public class WeightPicker {
                 })
                 .show();
 
-        setupNumberPickers(b.numberPickerKg, b.numberPickerG);
+        setupNumberPickers(b.numberPickerKg, b.numberPickerG, minQty);
 
         // Call new WeightPicker().show() in MainActivity and pass (this, new OnWeight...)
 
@@ -65,13 +65,14 @@ public class WeightPicker {
         // Try to understand the flow as to how our Listener interface is working
     }
 
-    private void setupNumberPickers(NumberPicker numberPickerKg, NumberPicker numberPickerG) {
+    private void setupNumberPickers(NumberPicker numberPickerKg, NumberPicker numberPickerG, String minQty) {
         // Define this method to setup kg & g NumberPickers as per the given ranges
         //kg Range - 0kg to 10kg
         //g Range - 0g to 950g
-        numberPickerKg.setMinValue(0);
+        Float quantity = Float.parseFloat(minQty) * 1000;
+        numberPickerKg.setMinValue((int) (quantity / 1000));
         numberPickerKg.setMaxValue(10);
-        numberPickerG.setMinValue(0);
+        numberPickerG.setMinValue(((int) (quantity % 1000)) / 50);
         numberPickerG.setMaxValue(19);
 
         numberPickerKg.setFormatter(new NumberPicker.Formatter() {
